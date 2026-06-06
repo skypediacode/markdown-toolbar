@@ -1,0 +1,11 @@
+node_modules/
+out/
+.vscode/
+*.vsix
+*.log
+coverage/
+.DS_Store
+.env
+.env.*
+claude.md
+prompt.md

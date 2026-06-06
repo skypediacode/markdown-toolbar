@@ -1,0 +1,562 @@
+{
+  "name": "markdown-toolbar-shortcuts",
+  "displayName": "Markdown Toolbar & Shortcuts",
+  "description": "Formatting toolbar, keyboard shortcuts, and utilities for Markdown files",
+  "version": "1.0.0",
+  "publisher": "skypediacode",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Formatters",
+    "Keymaps"
+  ],
+  "keywords": [
+    "markdown",
+    "markdown toolbar",
+    "markdown shortcuts",
+    "markdown formatting",
+    "markdown editor",
+    "bold",
+    "italic",
+    "link",
+    "heading",
+    "list",
+    "table",
+    "keyboard shortcuts",
+    "productivity"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skypediacode/markdown-toolbar"
+  },
+  "bugs": {
+    "url": "https://github.com/skypediacode/markdown-toolbar/issues"
+  },
+  "homepage": "https://github.com/skypediacode/markdown-toolbar#readme",
+  "galleryBanner": {
+    "color": "#1e1e2e",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "markdownToolbar.openCodexSidebar",
+        "title": "Open Codex Sidebar",
+        "category": "Markdown",
+        "icon": "$(comment-discussion)"
+      },
+      {
+        "command": "markdownToolbar.bold",
+        "title": "Bold",
+        "category": "Markdown",
+        "icon": "$(bold)"
+      },
+      {
+        "command": "markdownToolbar.italic",
+        "title": "Italic",
+        "category": "Markdown",
+        "icon": "$(italic)"
+      },
+      {
+        "command": "markdownToolbar.strikethrough",
+        "title": "Strikethrough",
+        "category": "Markdown",
+        "icon": "$(strikethrough)"
+      },
+      {
+        "command": "markdownToolbar.inlineCode",
+        "title": "Inline Code",
+        "category": "Markdown",
+        "icon": "$(code)"
+      },
+      {
+        "command": "markdownToolbar.link",
+        "title": "Link",
+        "category": "Markdown",
+        "icon": "$(link)"
+      },
+      {
+        "command": "markdownToolbar.image",
+        "title": "Image",
+        "category": "Markdown",
+        "icon": "$(file-media)"
+      },
+      {
+        "command": "markdownToolbar.heading1",
+        "title": "Heading 1",
+        "category": "Markdown",
+        "icon": "$(case-sensitive)"
+      },
+      {
+        "command": "markdownToolbar.heading2",
+        "title": "Heading 2",
+        "category": "Markdown",
+        "icon": "$(case-sensitive)"
+      },
+      {
+        "command": "markdownToolbar.heading3",
+        "title": "Heading 3",
+        "category": "Markdown",
+        "icon": "$(case-sensitive)"
+      },
+      {
+        "command": "markdownToolbar.quote",
+        "title": "Quote",
+        "category": "Markdown",
+        "icon": "$(quote)"
+      },
+      {
+        "command": "markdownToolbar.unorderedList",
+        "title": "Unordered List",
+        "category": "Markdown",
+        "icon": "$(list-unordered)"
+      },
+      {
+        "command": "markdownToolbar.orderedList",
+        "title": "Ordered List",
+        "category": "Markdown",
+        "icon": "$(list-ordered)"
+      },
+      {
+        "command": "markdownToolbar.taskListUnchecked",
+        "title": "Task List (Unchecked)",
+        "category": "Markdown",
+        "icon": "$(checklist)"
+      },
+      {
+        "command": "markdownToolbar.taskListChecked",
+        "title": "Task List (Checked)",
+        "category": "Markdown",
+        "icon": "$(checklist)"
+      },
+      {
+        "command": "markdownToolbar.codeBlock",
+        "title": "Code Block",
+        "category": "Markdown",
+        "icon": "$(code)"
+      },
+      {
+        "command": "markdownToolbar.table",
+        "title": "Table",
+        "category": "Markdown",
+        "icon": "$(table)"
+      },
+      {
+        "command": "markdownToolbar.inlineMath",
+        "title": "Inline Math",
+        "category": "Markdown",
+        "icon": "$(symbol-number)"
+      },
+      {
+        "command": "markdownToolbar.blockMath",
+        "title": "Block Math",
+        "category": "Markdown",
+        "icon": "$(symbol-number)"
+      },
+      {
+        "command": "markdownToolbar.horizontalRule",
+        "title": "Horizontal Rule",
+        "category": "Markdown",
+        "icon": "$(remove)"
+      },
+      {
+        "command": "markdownToolbar.updateSectionNumbers",
+        "title": "Update Section Numbers",
+        "category": "Markdown",
+        "icon": "$(list-ordered)"
+      },
+      {
+        "command": "markdownToolbar.updateListNumbers",
+        "title": "Update List Numbers",
+        "category": "Markdown",
+        "icon": "$(list-ordered)"
+      }
+    ],
+    "submenus": [
+      {
+        "id": "markdownToolbar.more",
+        "label": "More"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "markdownToolbar.bold",
+          "when": "editorLangId == markdown",
+          "group": "navigation@1"
+        },
+        {
+          "command": "markdownToolbar.italic",
+          "when": "editorLangId == markdown",
+          "group": "navigation@2"
+        },
+        {
+          "command": "markdownToolbar.strikethrough",
+          "when": "editorLangId == markdown",
+          "group": "navigation@3"
+        },
+        {
+          "command": "markdownToolbar.inlineCode",
+          "when": "editorLangId == markdown",
+          "group": "navigation@4"
+        },
+        {
+          "command": "markdownToolbar.link",
+          "when": "editorLangId == markdown",
+          "group": "navigation@5"
+        },
+        {
+          "command": "markdownToolbar.image",
+          "when": "editorLangId == markdown",
+          "group": "navigation@6"
+        },
+        {
+          "command": "markdownToolbar.heading1",
+          "when": "editorLangId == markdown",
+          "group": "navigation@7"
+        },
+        {
+          "command": "markdownToolbar.heading2",
+          "when": "editorLangId == markdown",
+          "group": "navigation@8"
+        },
+        {
+          "command": "markdownToolbar.heading3",
+          "when": "editorLangId == markdown",
+          "group": "navigation@9"
+        },
+        {
+          "command": "markdownToolbar.quote",
+          "when": "editorLangId == markdown",
+          "group": "navigation@10"
+        },
+        {
+          "command": "markdownToolbar.unorderedList",
+          "when": "editorLangId == markdown",
+          "group": "navigation@11"
+        },
+        {
+          "command": "markdownToolbar.orderedList",
+          "when": "editorLangId == markdown",
+          "group": "navigation@12"
+        },
+        {
+          "command": "markdownToolbar.taskListUnchecked",
+          "when": "editorLangId == markdown",
+          "group": "navigation@13"
+        },
+        {
+          "command": "markdownToolbar.taskListChecked",
+          "when": "editorLangId == markdown",
+          "group": "navigation@14"
+        },
+        {
+          "command": "markdownToolbar.codeBlock",
+          "when": "editorLangId == markdown",
+          "group": "navigation@15"
+        },
+        {
+          "command": "markdownToolbar.table",
+          "when": "editorLangId == markdown",
+          "group": "navigation@16"
+        },
+        {
+          "command": "markdownToolbar.inlineMath",
+          "when": "editorLangId == markdown",
+          "group": "navigation@17"
+        },
+        {
+          "command": "markdownToolbar.blockMath",
+          "when": "editorLangId == markdown",
+          "group": "navigation@18"
+        },
+        {
+          "command": "markdownToolbar.horizontalRule",
+          "when": "editorLangId == markdown",
+          "group": "navigation@19"
+        },
+        {
+          "command": "markdownToolbar.updateSectionNumbers",
+          "when": "editorLangId == markdown",
+          "group": "navigation@20"
+        },
+        {
+          "command": "markdownToolbar.updateListNumbers",
+          "when": "editorLangId == markdown",
+          "group": "navigation@21"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "markdownToolbar.bold",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@1"
+        },
+        {
+          "command": "markdownToolbar.italic",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@2"
+        },
+        {
+          "command": "markdownToolbar.link",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@3"
+        },
+        {
+          "submenu": "markdownToolbar.more",
+          "title": "More",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@4"
+        }
+      ],
+      "markdownToolbar.more": [
+        {
+          "command": "markdownToolbar.openCodexSidebar",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@1"
+        },
+        {
+          "command": "markdownToolbar.strikethrough",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@2"
+        },
+        {
+          "command": "markdownToolbar.inlineCode",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@3"
+        },
+        {
+          "command": "markdownToolbar.link",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@4"
+        },
+        {
+          "command": "markdownToolbar.image",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@5"
+        },
+        {
+          "command": "markdownToolbar.heading1",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@6"
+        },
+        {
+          "command": "markdownToolbar.heading2",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@7"
+        },
+        {
+          "command": "markdownToolbar.heading3",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@8"
+        },
+        {
+          "command": "markdownToolbar.quote",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@9"
+        },
+        {
+          "command": "markdownToolbar.unorderedList",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@10"
+        },
+        {
+          "command": "markdownToolbar.orderedList",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@11"
+        },
+        {
+          "command": "markdownToolbar.taskListUnchecked",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@12"
+        },
+        {
+          "command": "markdownToolbar.taskListChecked",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@13"
+        },
+        {
+          "command": "markdownToolbar.codeBlock",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@14"
+        },
+        {
+          "command": "markdownToolbar.table",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@15"
+        },
+        {
+          "command": "markdownToolbar.inlineMath",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@16"
+        },
+        {
+          "command": "markdownToolbar.blockMath",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@17"
+        },
+        {
+          "command": "markdownToolbar.horizontalRule",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@18"
+        },
+        {
+          "command": "markdownToolbar.updateSectionNumbers",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@19"
+        },
+        {
+          "command": "markdownToolbar.updateListNumbers",
+          "when": "editorTextFocus && editorLangId == markdown",
+          "group": "markdown@20"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "markdownToolbar.bold",
+        "key": "ctrl+b",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.italic",
+        "key": "ctrl+i",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.link",
+        "key": "ctrl+k",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.bold",
+        "key": "ctrl+m ctrl+b",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.italic",
+        "key": "ctrl+m ctrl+i",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.inlineCode",
+        "key": "ctrl+m ctrl+c",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.strikethrough",
+        "key": "ctrl+m ctrl+s",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.heading1",
+        "key": "ctrl+m ctrl+1",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.heading2",
+        "key": "ctrl+m ctrl+2",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.heading3",
+        "key": "ctrl+m ctrl+3",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.quote",
+        "key": "ctrl+m ctrl+q",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.unorderedList",
+        "key": "ctrl+m ctrl+u",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.orderedList",
+        "key": "ctrl+m ctrl+o",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.taskListUnchecked",
+        "key": "ctrl+m ctrl+x",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.taskListChecked",
+        "key": "ctrl+m ctrl+shift+x",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.link",
+        "key": "ctrl+m ctrl+l",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.image",
+        "key": "ctrl+m ctrl+g",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.inlineMath",
+        "key": "ctrl+m ctrl+m",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.blockMath",
+        "key": "ctrl+m ctrl+shift+m",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.codeBlock",
+        "key": "ctrl+m ctrl+k",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.table",
+        "key": "ctrl+m ctrl+t",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.horizontalRule",
+        "key": "ctrl+m ctrl+h",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.updateSectionNumbers",
+        "key": "ctrl+m ctrl+n",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdownToolbar.updateListNumbers",
+        "key": "ctrl+m ctrl+shift+n",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdown.showPreviewToSide",
+        "key": "ctrl+m ctrl+p",
+        "when": "editorTextFocus && editorLangId == markdown"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "test": "npm run compile && node --test test/*.test.js",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package --no-yarn --allow-missing-repository"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.9.1",
+    "typescript": "^5.0.0"
+  }
+}

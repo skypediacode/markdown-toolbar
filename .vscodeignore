@@ -1,0 +1,22 @@
+# Exclude dev and build files from VSIX package
+.vscode/
+node_modules/
+out/test/
+test/
+.vscode-test/
+**/*.map
+**/*.ts
+*.log
+coverage/
+.git/
+.gitignore
+*.vsix
+tsconfig.json
+package-lock.json
+claude.md
+prompt.md
+*.yml
+*.yaml
+*.env
+*.env.*
+*.DS_Store
