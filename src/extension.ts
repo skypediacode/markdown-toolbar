@@ -364,16 +364,6 @@ export function activate(context: vscode.ExtensionContext): void {
         return e && e.document.languageId === 'markdown' ? e : undefined;
     };
 
-    reg('markdownToolbar.openCodexSidebar', async () => {
-        try {
-            await vscode.commands.executeCommand('chatgpt.openSidebar');
-        } catch {
-            void vscode.window.showWarningMessage(
-                'Open Codex Sidebar requires the Codex extension from OpenAI to be installed and enabled.'
-            );
-        }
-    });
-
     // Inline formatting
     reg('markdownToolbar.bold', () => {
         const e = getEditor(); if (e) { applyInlineWrap(e, { prefix: '**', suffix: '**' }); }

@@ -1,8 +1,8 @@
 {
-  "name": "markdown-toolbar-shortcuts",
-  "displayName": "Markdown Toolbar & Shortcuts",
-  "description": "Formatting toolbar, keyboard shortcuts, and utilities for Markdown files",
-  "version": "1.0.0",
+  "name": "markdown-toolbar-and-shortcuts",
+  "displayName": "Markdown Toolbar & Keyboard Shortcuts for VS Code",
+  "description": "VS Code extension for Markdown toolbar actions, keyboard shortcuts, and formatting utilities",
+  "version": "1.0.3",
   "publisher": "skypediacode",
   "icon": "images/icon.png",
   "engines": {
@@ -16,8 +16,10 @@
     "markdown",
     "markdown toolbar",
     "markdown shortcuts",
+    "markdown keyboard shortcuts",
     "markdown formatting",
     "markdown editor",
+    "markdown extension",
     "bold",
     "italic",
     "link",
@@ -45,12 +47,6 @@
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      {
-        "command": "markdownToolbar.openCodexSidebar",
-        "title": "Open Codex Sidebar",
-        "category": "Markdown",
-        "icon": "$(comment-discussion)"
-      },
       {
         "command": "markdownToolbar.bold",
         "title": "Bold",
