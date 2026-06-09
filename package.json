@@ -2,7 +2,7 @@
   "name": "markdown-toolbar-and-shortcuts",
   "displayName": "Markdown Toolbar & Keyboard Shortcuts for VS Code",
   "description": "VS Code extension for Markdown toolbar actions, keyboard shortcuts, and formatting utilities",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "skypediacode",
   "icon": "images/icon.png",
   "engines": {
@@ -312,11 +312,6 @@
         }
       ],
       "markdownToolbar.more": [
-        {
-          "command": "markdownToolbar.openCodexSidebar",
-          "when": "editorTextFocus && editorLangId == markdown",
-          "group": "markdown@1"
-        },
         {
           "command": "markdownToolbar.strikethrough",
           "when": "editorTextFocus && editorLangId == markdown",

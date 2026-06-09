@@ -13,7 +13,7 @@ Markdown Toolbar & Keyboard Shortcuts for VS Code is a VS Code extension for fas
 - Toggle-aware inline formatting, line-based transforms, and section number updates.
 - Dedicated utilities to renumber section headings and ordered lists.
 
-![Expanded Markdown toolbar and formatting workflow](images/toolbar-screenshot-2.png)
+![Expanded Markdown toolbar and formatting workflow](images/toolbar-screenshot.png)
 _Additional toolbar and formatting workflow view._
 
 ![Markdown right-click context menu with the expanded `More` submenu](images/context-menu-screenshot.png)
@@ -89,14 +89,6 @@ All shortcuts are active only while editing Markdown files.
 - `Update Section Numbers` renumbers H1-H3 headings for the current selection, or for the whole file when nothing is selected.
 - `Update List Numbers` renumbers ordered lists for the current selection, or for the whole file when nothing is selected.
 - Fenced code blocks are preserved during section renumbering.
-
-## Release Notes
-
-### v1.0.0
-
-- Initial release on the VS Code Marketplace.
-
-See [CHANGELOG.md](CHANGELOG.md) for the full release history.
 
 ---
 
