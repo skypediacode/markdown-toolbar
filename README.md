@@ -1,8 +1,8 @@
-# Markdown Toolbar & Keyboard Shortcuts for VS Code
+# Markdown Toolbar & Keyboard Shortcuts
 
 **Install on Marketplace:** https://marketplace.visualstudio.com/items?itemName=skypediacode.markdown-toolbar-and-shortcuts
 
-Markdown Toolbar & Keyboard Shortcuts for VS Code is a VS Code extension for faster Markdown editing. It adds a title-bar toolbar, keyboard shortcuts, and a compact right-click menu for common Markdown formatting actions.
+Markdown Toolbar & Keyboard Shortcuts is a VS Code extension for faster Markdown editing. It adds a title-bar toolbar, keyboard shortcuts, and a compact right-click menu for common Markdown formatting actions.
 
 ## Features
 
