@@ -3,7 +3,7 @@ export interface LineRange {
     endLine: number;
 }
 
-const headingPattern = /^(#{1,3})\s+(?:\d+(?:\.\d+)*\.?\s+)?(.+)$/;
+const headingPattern = /^(#{1,6})\s+(?:\d+(?:\.\d+)*\.?\s+)?(.+)$/;
 const fencePattern = /^(\s*)(`{3,}|~{3,})/;
 const orderedListPattern = /^(\s*)(\d+)\.\s+(.*)$/;
 
@@ -76,23 +76,28 @@ function getIndentWidth(indent: string): number {
     return width;
 }
 
-function updateCounters(counters: number[], level: number): void {
-    for (let i = 0; i < level - 1; i++) {
+function updateCounters(counters: number[], depth: number): void {
+    for (let i = 0; i < depth; i++) {
         if (counters[i] === 0) {
             counters[i] = 1;
         }
     }
 
-    counters[level - 1]++;
+    counters[depth]++;
 
-    for (let i = level; i < counters.length; i++) {
+    for (let i = depth + 1; i < counters.length; i++) {
         counters[i] = 0;
     }
 }
 
 function formatHeading(level: number, content: string, counters: number[]): string {
+    if (level === 1) {
+        return `# ${content}`;
+    }
     const hashes = '#'.repeat(level);
-    const section = counters.slice(0, level).join('.');
+    const depth = level - 2;
+    const parts = counters.slice(0, depth + 1);
+    const section = depth === 0 ? `${parts[0]}.` : parts.join('.');
     return `${hashes} ${section} ${content}`;
 }
 
@@ -100,7 +105,7 @@ export function renumberMarkdownHeadings(text: string, ranges?: LineRange[]): st
     const { eol, lines, targetRanges } = getLineRanges(text, ranges);
 
     for (const range of targetRanges) {
-        const counters = [0, 0, 0];
+        const counters = [0, 0, 0, 0, 0];
         let activeFence = getFenceStateBeforeLine(lines, range.startLine);
 
         for (let i = range.startLine; i <= range.endLine; i++) {
@@ -132,8 +137,14 @@ export function renumberMarkdownHeadings(text: string, ranges?: LineRange[]): st
             const level = headingMatch[1].length;
             const content = headingMatch[2];
 
-            updateCounters(counters, level);
-            lines[i] = formatHeading(level, content, counters);
+            if (level === 1) {
+                counters.fill(0);
+                lines[i] = formatHeading(1, content, counters);
+            } else {
+                const depth = level - 2;
+                updateCounters(counters, depth);
+                lines[i] = formatHeading(level, content, counters);
+            }
         }
     }
 

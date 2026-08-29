@@ -89,7 +89,7 @@ All shortcuts are active only while editing Markdown files.
 
 - Inline commands wrap selected text and toggle off when the selection is already formatted.
 - Line-based commands apply to each selected line.
-- `Update Section Numbers` renumbers H1-H3 headings for the current selection, or for the whole file when nothing is selected.
+- `Update Section Numbers` renumbers H2-H6 section headings (preserving H1 as the document title) for the current selection, or for the whole file when nothing is selected.
 - `Update List Numbers` renumbers ordered lists for the current selection, or for the whole file when nothing is selected.
 - Fenced code blocks are preserved during section renumbering.
 

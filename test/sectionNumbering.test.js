@@ -5,37 +5,59 @@ const {
     renumberMarkdownOrderedLists
 } = require('../out/sectionNumbering.js');
 
-test('renumbers the whole document and skips fenced code blocks', () => {
+test('renumbers H2-H6 sections, keeps H1 as title, and skips fenced code blocks', () => {
     const input = [
-        '# Intro',
+        '# Document Title',
         '## Background',
         '```ts',
         '## Not a heading',
         '```',
         '### Details',
-        '# Next'
+        '#### Deep Dive',
+        '## Next Section',
+        '### More Details'
     ].join('\n');
 
     const output = renumberMarkdownHeadings(input);
 
     assert.equal(output, [
-        '# 1 Intro',
-        '## 1.1 Background',
+        '# Document Title',
+        '## 1. Background',
         '```ts',
         '## Not a heading',
         '```',
-        '### 1.1.1 Details',
-        '# 2 Next'
+        '### 1.1 Details',
+        '#### 1.1.1 Deep Dive',
+        '## 2. Next Section',
+        '### 2.1 More Details'
     ].join('\n'));
 });
 
-test('renumbers only selected lines while preserving numbering context from earlier headings', () => {
+test('cleans existing numbers on H1 and updates H2-H4 numbers', () => {
     const input = [
-        '# 1 Intro',
-        '## 1.1 Overview',
-        '## 9.9 Setup',
-        '### 9.9.9 Nested',
-        '# 2 Appendix'
+        '# 1 Old Document Title',
+        '## 1.1 Old Background',
+        '### 1.1.1 Old Sub',
+        '## 1.2 Another Section'
+    ].join('\n');
+
+    const output = renumberMarkdownHeadings(input);
+
+    assert.equal(output, [
+        '# Old Document Title',
+        '## 1. Old Background',
+        '### 1.1 Old Sub',
+        '## 2. Another Section'
+    ].join('\n'));
+});
+
+test('renumbers only selected lines', () => {
+    const input = [
+        '# Intro',
+        '## 1. Overview',
+        '## 9. Setup',
+        '### 9.9 Nested',
+        '## 2. Appendix'
     ].join('\n');
 
     const output = renumberMarkdownHeadings(input, [
@@ -43,21 +65,21 @@ test('renumbers only selected lines while preserving numbering context from earl
     ]);
 
     assert.equal(output, [
-        '# 1 Intro',
-        '## 1.1 Overview',
-        '## 1.1 Setup',
-        '### 1.1.1 Nested',
-        '# 2 Appendix'
+        '# Intro',
+        '## 1. Overview',
+        '## 1. Setup',
+        '### 1.1 Nested',
+        '## 2. Appendix'
     ].join('\n'));
 });
 
 test('treats each selected range independently and does not touch unselected headings', () => {
     const input = [
-        '# 7 Intro',
-        '## 7.1 A',
+        '## 7. Intro',
+        '### 7.1 A',
         'text',
-        '## 8.9 B',
-        '### 8.9.4 C'
+        '## 8. B',
+        '### 8.9 C'
     ].join('\n');
 
     const output = renumberMarkdownHeadings(input, [
@@ -66,11 +88,31 @@ test('treats each selected range independently and does not touch unselected hea
     ]);
 
     assert.equal(output, [
-        '# 7 Intro',
-        '## 1.1 A',
+        '## 7. Intro',
+        '### 1.1 A',
         'text',
-        '## 1.1 B',
-        '### 1.1.1 C'
+        '## 1. B',
+        '### 1.1 C'
+    ].join('\n'));
+});
+
+test('resets counter on new H1 title sections', () => {
+    const input = [
+        '# Part 1',
+        '## Overview',
+        '## Details',
+        '# Part 2',
+        '## Summary'
+    ].join('\n');
+
+    const output = renumberMarkdownHeadings(input);
+
+    assert.equal(output, [
+        '# Part 1',
+        '## 1. Overview',
+        '## 2. Details',
+        '# Part 2',
+        '## 1. Summary'
     ].join('\n'));
 });
 
